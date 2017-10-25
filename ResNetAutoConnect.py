@@ -5,12 +5,12 @@ except:
 import requests
 
 #change your password here
-password="password"
+password=""
 #change your username here
-user="user"
+user=""
 
 def have_internet():
-    conn = httplib.HTTPConnection("www.bing.com", timeout=5)
+    conn = httplib.HTTPSConnection("www.bing.com", timeout=5)
     try:
         conn.request("HEAD", "/")
         resp = conn.getresponse()
@@ -37,3 +37,8 @@ if not have_internet():
     print(r.status_code)
     # print(r.headers)
     # print(r.text)
+    if r.status_code == 200:
+        print("Login successfully")
+    else:
+        print("Logged in already?")
+
